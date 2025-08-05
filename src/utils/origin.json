@@ -1,0 +1,7 @@
+{
+    "font": "Firebird",
+    "host": "localhost",
+    "user": "sysdba", 
+    "password": "masterkey",
+    "database": "C:/Moura_/Banco_Origem/OLIMPUS.FDB"
+}
