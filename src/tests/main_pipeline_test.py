@@ -1,4 +1,4 @@
-from ..main_pipeline import MainPipeline
+from src.main_pipeline import MainPipeline
 
 
 def test_pipeline():

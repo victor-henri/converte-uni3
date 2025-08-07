@@ -53,7 +53,250 @@
             "CLINUMCASA": {
                 "field_destiny": "Numero",
                 "transform": {
-                    "clear":true
+                }
+            },
+            "CLICIDADE": {
+                "field_destiny": "Cidade",
+                "transform": {
+                    "clear": true,
+                    "upper": true,
+                    "search": "CITY",
+                    "copy": "Codigo_Cidade"
+                }
+            },
+            "CLIUF": {
+                "field_destiny": "UF",
+                "transform": {
+                }
+            },
+            "CLIBAIRRO": {
+                "field_destiny": "Bairro",
+                "transform": {
+                    "trim": true,
+                    "clear": true
+                }
+            },
+            "CLICEP": {
+                "field_destiny": "Cep",
+                "transform": {
+                    "format": "CEP"
+                }
+            },
+            "CLIPONTOREF": {
+                "field_destiny": "Complemento",
+                "transform": {
+                    "trim": true,
+                    "clear": true
+                }
+            },
+            "CLIATIVO": {
+                "field_destiny": "Inativo",
+                "transform": {
+                    "switch": {
+                        "str_from": ["0", "1"],
+                        "str_to": ["N", "S"]
+                    }
+                }
+            },
+            "CLIEMAIL": {
+                "field_destiny": "Email",
+                "transform": {
+                    "trim": true
+                }
+            },
+            "CLIFONE1": {
+                "field_destiny": "Fone_Numero",
+                "transform": {
+                    "split": "DDD1"
+                }
+            },
+            "CLICELULAR": {
+                "field_destiny": "Numero_Celular",
+                "transform": {
+                    "split": "DDD_Celular"
+                }
+            }
+        },
+        "remove": {
+            "column_1": "UF",
+            "column_2": "Codigo_Cidade",
+            "column_3": "Codigo_Cidade_IBGE"
+        }
+    },
+    "client_fis": {
+        "table": "CLIENTES",
+        "destiny": "Pessoa",
+        "fields": {
+            "CLICODIGO": {
+                "field_destiny": "Codigo",
+                "transform": {
+                }
+            },
+            "CLINOME": {
+                "field_destiny": "Nome",
+                "transform": {
+                    "trim": true,
+                    "clear": true
+                }
+            },
+            "CLICLASSE": {
+                "field_destiny": "Tipo",
+                "transform": {
+                    "select": "PESSOA FISICA",
+                    "switch": {
+                        "str_from": ["PESSOA FISICA"],
+                        "str_to": ["F"]
+                    }
+                }
+            },
+            "CLICPF": {
+                "field_destiny": "CPF",
+                "transform": {
+                    "format": "CPF"
+                }
+            },
+            "CLIRG": {
+                "field_destiny": "RG",
+                "transform": {
+                }
+            },
+            "CLIOBSERVACAO": {
+                "field_destiny": "Observacao",
+                "transform": {
+                }
+            },
+            "CLIENDERECO": {
+                "field_destiny": "Endereco_Nome",
+                "transform": {
+                    "clear": true,
+                    "trim": true
+                }
+            },
+            "CLINUMCASA": {
+                "field_destiny": "Numero",
+                "transform": {
+                }
+            },
+            "CLICIDADE": {
+                "field_destiny": "Cidade",
+                "transform": {
+                    "clear": true,
+                    "upper": true,
+                    "search": "CITY",
+                    "copy": "Codigo_Cidade"
+                }
+            },
+            "CLIUF": {
+                "field_destiny": "UF",
+                "transform": {
+                }
+            },
+            "CLIBAIRRO": {
+                "field_destiny": "Bairro",
+                "transform": {
+                    "trim": true,
+                    "clear": true
+                }
+            },
+            "CLICEP": {
+                "field_destiny": "Cep",
+                "transform": {
+                    "format": "CEP"
+                }
+            },
+            "CLIPONTOREF": {
+                "field_destiny": "Complemento",
+                "transform": {
+                    "trim": true,
+                    "clear": true
+                }
+            },
+            "CLIATIVO": {
+                "field_destiny": "Inativo",
+                "transform": {
+                    "switch": {
+                        "str_from": ["0", "1"],
+                        "str_to": ["N", "S"]
+                    }
+                }
+            },
+            "CLIEMAIL": {
+                "field_destiny": "Email",
+                "transform": {
+                    "trim": true
+                }
+            },
+            "CLIFONE1": {
+                "field_destiny": "Fone_Numero",
+                "transform": {
+                    "split": "DDD1"
+                }
+            },
+            "CLICELULAR": {
+                "field_destiny": "Numero_Celular",
+                "transform": {
+                    "split": "DDD_Celular"
+                }
+            }
+        },
+        "remove": {
+            "column_1": "UF",
+            "column_2": "Codigo_Cidade",
+            "column_3": "Codigo_Cidade_IBGE"
+        }
+    },
+    "client_jur": {
+        "table": "CLIENTES",
+        "destiny": "Pessoa",
+        "fields": {
+            "CLICODIGO": {
+                "field_destiny": "Codigo",
+                "transform": {
+                }
+            },
+            "CLINOME": {
+                "field_destiny": "Nome",
+                "transform": {
+                    "trim": true,
+                    "clear": true
+                }
+            },
+            "CLICLASSE": {
+                "field_destiny": "Tipo",
+                "transform": {
+                    "select": "PESSOA JURIDICA",
+                    "switch": {
+                        "str_from": ["PESSOA JURIDICA"],
+                        "str_to": ["J"]
+                    }
+                }
+            },
+            "CLICPF": {
+                "field_destiny": "CPF",
+                "transform": {
+                    "format": "CNPJ"
+                }
+            },
+            "CLIRG": {
+                "field_destiny": "RG",
+                "transform": {
+                }
+            },
+            "CLIOBSERVACAO": {
+                "field_destiny": "Observacao",
+                "transform": {
+                }
+            },
+            "CLIENDERECO": {
+                "field_destiny": "Endereco_Nome",
+                "transform": {
+                    "clear": true,
+                    "trim": true
+                }
+            },
+            "CLINUMCASA": {
+                "field_destiny": "Numero",
+                "transform": {
                 }
             },
             "CLICIDADE": {

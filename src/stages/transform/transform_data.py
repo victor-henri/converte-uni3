@@ -25,7 +25,7 @@ class Transformer(TransformInterface):
 
     def __init__(self, extract_contract: ExtractContract) -> None:
         self.__raw_data: dict[str, DataFrame] = extract_contract.raw_data
-        self.__processed_data: dict[str, DataFrame] = {}
+        self.__processed_data: list[dict[str, DataFrame]] = []
 
     def transform(self, tables: dict[str, str]) -> TransformContract:
         """
@@ -151,7 +151,7 @@ class Transformer(TransformInterface):
                     if hasattr(FieldHandler, option):
                         try:
                             transform_method = getattr(FieldHandler, option)
-                            df = transform_method(df, column, option_data=value)    
+                            df = transform_method(df, column, option_data=value)
 
                         except Exception as error:
                             print("[bold red]Erro ao transformar dados, verifique o log.[/bold red]")
@@ -186,5 +186,5 @@ class Transformer(TransformInterface):
         return df
 
     def __set_table(self, table: str ,df: DataFrame) -> None:
-        """Adiciona um DataFrame processado ao dicionário de resultados."""
-        self.__processed_data.update({table: df})
+        """Adiciona um DataFrame processado a uma lista de dicionários de resultados."""
+        self.__processed_data.append({table: df})

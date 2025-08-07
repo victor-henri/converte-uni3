@@ -1,21 +1,19 @@
-from ..utils.connector import SQLConnector
+from src.utils.connector import SQLConnector
 from sqlalchemy import text
 
 
 def test_connection():
 
     statement = text("SELECT 1 FROM RDB$DATABASE;")
- 
-    INFO = {'font': 'Firebird',
-            'host': 'localhost',
-            'user': 'sysdba', 
-            'password': 'masterkey',
-            'database': 'C:/Firebird/Matriz_Olimpus/MATRIZ.FDB'}
-    
-    engine_name = f"firebird+fdb://{INFO['user']}:{INFO['password']}@{INFO['host']}/{INFO['database']}"
+
+    INFO = {"font": "Firebird",
+            "host": "localhost",
+            "user": "sysdba", 
+            "password": "masterkey",
+            "database": "C:/Moura_/Banco_Origem/OLIMPUS.FDB"}
 
     conn = SQLConnector()
-    conn.db_connection(engine_name)
+    conn.db_connection(INFO)
     engine = conn.get_engine()
 
     with engine.connect() as connection:

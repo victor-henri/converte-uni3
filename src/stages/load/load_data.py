@@ -22,7 +22,7 @@ class Loader(LoadInterface):
     """
 
     def __init__(self, transform_contract: TransformContract, engine: Engine):
-        self.__clean_data: dict[str, DataFrame] = transform_contract.clean_data
+        self.__clean_data: list[dict[str, DataFrame]] = transform_contract.clean_data
         self.__engine = engine
 
     def load(self) -> None:
@@ -40,11 +40,12 @@ class Loader(LoadInterface):
             SystemExit: Em caso de qualquer erro durante a inserção,
                         o erro é logado e a aplicação é encerrada.
         """
-        for table, df in self.__clean_data.items():
-            try:
-                df.to_sql(name=table, con=self.__engine, if_exists='append', index=False)
+        for item in self.__clean_data:
+            for table, df in item.items():
+                try:
+                    df.to_sql(name=table, con=self.__engine, if_exists='append', index=False)
 
-            except Exception as error:
-                print("[bold red]Erro ao carregar dados, verifique o log.[/bold red]")
-                Log.error(f"Erro ao inserir dados na tabela {table}: {error}", True)
-                raise SystemExit from error
+                except Exception as error:
+                    print("[bold red]Erro ao carregar dados, verifique o log.[/bold red]")
+                    Log.error(f"Erro ao inserir dados na tabela {table}: {error}", True)
+                    raise SystemExit from error

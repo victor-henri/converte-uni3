@@ -29,6 +29,10 @@ class FieldHandler:
             df[column] = df[column].astype(str).str.strip()
             return df
 
+        #except UnicodeDecodeError:
+            #df[column] = df[column].astype(str, errors='ignore').str.strip()
+            #return df
+
         except Exception as error:
             print("[bold red]Erro ao transformar dados, verifique o log.[/bold red]")
             Log.error(f"Erro ao aplicar 'trim' na coluna '{column}': {error}", True)
@@ -123,7 +127,7 @@ class FieldHandler:
         Raises:
             SystemExit: Se ocorrer um erro durante a limpeza ou normalização.
         """
-        default = r'[^a-zA-Z0-9\s\n.-\/àáâãäèéêëìíîïòóôõöùúûüçñÀÁÂÃÄÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÇÑ]'
+        default = r'[^a-zA-Z0-9\s\n.-\/àáâãäèéêëìíîïòóôõöùúûüçñÀÁÂÃÄÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÇÑº*ª]'
 
         try:
             df[column] = df[column].astype(str)
@@ -230,7 +234,7 @@ class FieldHandler:
                 raise SystemExit from error
 
         elif str_type == 'CEP':
-            search = r'([0-9]{6})([0-9]{2})'
+            search = r'([0-9]{5})([0-9]{3})'
             format = r'\1-\2'
 
             try:
