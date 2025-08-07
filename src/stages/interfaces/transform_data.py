@@ -11,8 +11,8 @@ class TransformInterface(ABC):
         Define o contrato para executar o processo de transformação.
 
         Args:
-            (dict[str, str]): Dicionário de configuração que guia como
-                cada conjunto de dados deve ser transformado.
+            tables (dict[str, str]): Dicionário de configuração que guia como
+                                     cada conjunto de dados deve ser transformado.
 
         Returns:
             TransformContract: Um objeto de contrato contendo os dados limpos.

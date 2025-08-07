@@ -1,5 +1,5 @@
-from rich import print
 from datetime import date
+from rich import print
 from pandas import DataFrame
 from sqlalchemy import MetaData, Table, Engine
 from logs.log import Log
@@ -15,9 +15,9 @@ class Extractor(ExtractInterface):
     múltiplas tabelas e retorna os dados em um objeto de contrato padronizado.
 
     Args:
-            str: Um identificador para a fonte de dados.
-            Engine: Uma instância ativa do engine do SQLAlchemy para a 
-                      conexão com o banco de dados.
+            font (str): Um identificador para a fonte de dados.
+            engine (Engine): Uma instância ativa do engine do SQLAlchemy para a 
+                             conexão com o banco de dados.
     """
 
     def __init__(self,  font: str, engine: Engine) -> None:
@@ -35,12 +35,12 @@ class Extractor(ExtractInterface):
         resultantes antes de empacotá-los em um ExtractContract.
 
         Args:
-            (dict[str, dict]): Dicionário que mapeia um nome lógico 
-                para as especificações da tabela.
+            tables (dict[str, dict]): Dicionário que mapeia um nome lógico 
+                                      para as especificações da tabela.
 
         Returns:
             ExtractContract: Um objeto de contrato contendo um dicionário de
-                DataFrames com os dados brutos e a data da extração.
+                             DataFrames com os dados brutos e a data da extração.
         """
         for name, table in tables.items():
             data = self.__extract_table(table["table"])
@@ -61,7 +61,7 @@ class Extractor(ExtractInterface):
         para selecionar todos os seus dados.
 
         Args:
-            str: O nome exato da tabela no banco de dados.
+            table_name (str): O nome exato da tabela no banco de dados.
 
         Returns:
             DataFrame: Um DataFrame do pandas com os dados da tabela.

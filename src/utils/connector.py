@@ -18,8 +18,8 @@ class SQLConnector():
         Se a conexão for bem-sucedida, o engine é armazenado internamente.
 
         Args:
-            (dict[str, str]): Um dicionário contendo as credenciais e o tipo ('font')
-                              do banco de dados.
+            info (dict[str, str]): Um dicionário contendo as credenciais e o tipo ('font')
+                                   do banco de dados.
 
         Raises:
             SystemExit: Se a criação do engine ou o teste de conexão falhar por
@@ -42,7 +42,7 @@ class SQLConnector():
         Define o engine do SQLAlchemy para a instância do conector.
 
         Args:
-            Engine: Uma instância de engine do SQLAlchemy.
+            engine (Engine): Uma instância de engine do SQLAlchemy.
         """
         self.__engine = engine
 
@@ -61,8 +61,8 @@ class SQLConnector():
         Constrói a string de conexão do SQLAlchemy com base na configuração.
 
         Args:
-            (dict[str, str]): Um dicionário contendo as credenciais e o tipo ('font')
-                              do banco de dados.
+            info (dict[str, str]): Um dicionário contendo as credenciais e o tipo ('font')
+                                   do banco de dados.
 
         Returns:
             str: A string de conexão formatada para o SQLAlchemy.

@@ -19,8 +19,8 @@ class Transformer(TransformInterface):
     `FieldHandler`.
 
     Args:
-            ExtractContract: O objeto de contrato que contém
-                os DataFrames brutos da fase de extração.
+            extract_contract (ExtractContract): O objeto de contrato que contém
+                                                os DataFrames brutos da fase de extração.
     """
 
     def __init__(self, extract_contract: ExtractContract) -> None:
@@ -32,8 +32,8 @@ class Transformer(TransformInterface):
         Orquestra o processo de transformação para todos os dados.
 
         Args:
-            (dict[str, str]): A configuração que detalha os passos de
-                transformação para cada tabela de dados brutos.
+            tables (dict[str, str]): A configuração que detalha os passos de
+                                     transformação para cada tabela de dados brutos.
 
         Returns:
             TransformContract: Um contrato contendo os DataFrames processados.
@@ -55,7 +55,7 @@ class Transformer(TransformInterface):
         Adicionalmente cria arquivos xlsx para cada tabela transformada.
 
         Args:
-            (dict[str, str]): A configuração detalhada das transformações.
+            tables (dict[str, str]): A configuração detalhada das transformações.
         """
         for key, value in tables.items():
             df = self.__raw_data[key]
@@ -75,8 +75,8 @@ class Transformer(TransformInterface):
         Seleciona um subconjunto de colunas de um DataFrame.
 
         Args:
-            DataFrame: O DataFrame original.
-            (dict[str, str]): A parte da configuração que contém os nomes
+            df (DataFrame): O DataFrame original.
+            info (dict[str, str]): A parte da configuração que contém os nomes
                                    dos campos a serem extraídos.
 
         Returns:
@@ -165,8 +165,8 @@ class Transformer(TransformInterface):
         Remove colunas especificadas de um DataFrame.
 
         Args:
-            DataFrame: O DataFrame a ser modificado.
-            (list[str]): Uma lista com os nomes das colunas a serem removidas.
+            df (DataFrame): O DataFrame a ser modificado.
+            remove (list[str]): Uma lista com os nomes das colunas a serem removidas.
 
         Returns:
             DataFrame: O DataFrame sem as colunas removidas.

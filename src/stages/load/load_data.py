@@ -14,11 +14,11 @@ class Loader(LoadInterface):
     SQLAlchemy e pandas para inserir os registros nas tabelas de destino.
 
     Args:
-            str: Um identificador para a fonte original dos dados.
-            Engine: Uma instância ativa do engine do SQLAlchemy para a
+            transform_contract (TransformContract): O objeto de contrato que contém
+                                                    os DataFrames limpos.
+            engine (Engine): Uma instância ativa do engine do SQLAlchemy para a
                              conexão com o banco de dados de destino.
-            TransformContract: O objeto de contrato que contém
-                                                   os DataFrames limpos.
+            
     """
 
     def __init__(self, transform_contract: TransformContract, engine: Engine):

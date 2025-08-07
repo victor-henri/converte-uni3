@@ -16,11 +16,11 @@ class ExtractInterface(ABC):
         Define o contrato para extrair dados de uma ou mais tabelas/entidades.
 
         Args:
-            (dict[str, dict]): Dicionário que mapeia um nome lógico 
-                para as especificações da tabela a ser extraída.
+            tables (dict[str, dict]): Dicionário que mapeia um nome lógico 
+                                      para as especificações da tabela a ser extraída.
 
         Returns:
             ExtractContract: Um objeto de contrato contendo os dados brutos 
-                extraídos e metadados da extração.
+                             extraídos e metadados da extração.
         """
         raise NotImplementedError

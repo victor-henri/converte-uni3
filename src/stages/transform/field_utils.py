@@ -1,5 +1,5 @@
-from rich import print
 from unicodedata import normalize
+from rich import print
 from pandas import DataFrame
 from logs.log import Log
 from utils.config_json import JsonConfig
@@ -21,6 +21,10 @@ class FieldHandler:
     def trim(cls, df: DataFrame, column: str, **kwargs) -> DataFrame:
         """
         Remove espaços em branco do início e do fim dos valores da coluna.
+        
+        Args:
+            df (DataFrame): DataFrame a ser modificado.
+            column (str): Coluna selecionada para modificação.
 
         Raises:
             SystemExit: Se ocorrer um erro durante a conversão ou manipulação da string.
@@ -28,10 +32,6 @@ class FieldHandler:
         try:
             df[column] = df[column].astype(str).str.strip()
             return df
-
-        #except UnicodeDecodeError:
-            #df[column] = df[column].astype(str, errors='ignore').str.strip()
-            #return df
 
         except Exception as error:
             print("[bold red]Erro ao transformar dados, verifique o log.[/bold red]")
@@ -42,6 +42,10 @@ class FieldHandler:
     def upper(cls, df: DataFrame, column: str, **kwargs) -> DataFrame:
         """
         Converte todos os caracteres da coluna para maiúsculas.
+        
+        Args:
+            df (DataFrame): DataFrame a ser modificado.
+            column (str): Coluna selecionada para modificação.
 
         Raises:
             SystemExit: Se ocorrer um erro durante a conversão ou manipulação da string.
@@ -59,6 +63,10 @@ class FieldHandler:
     def lower(cls, df: DataFrame, column: str, **kwargs) -> DataFrame:
         """
         Converte todos os caracteres da coluna para minúsculas.
+        
+        Args:
+            df (DataFrame): DataFrame a ser modificado.
+            column (str): Coluna selecionada para modificação.
 
         Raises:
             SystemExit: Se ocorrer um erro durante a conversão ou manipulação da string.
@@ -78,8 +86,10 @@ class FieldHandler:
         Substitui múltiplos valores na coluna com base em listas de 'de/para'.
 
         Args:
-            **kwargs: Espera 'option_data' com 'str_from' (lista de valores a
-                      serem substituídos) e 'str_to' (lista com os novos valores).
+            df (DataFrame): DataFrame a ser modificado.
+            column (str): Coluna selecionada para modificação.
+            **kwargs: Espera 'option_data' com 'str_from' (valor a
+                      ser substituído) e 'str_to' (novo valor).
 
         Raises:
             SystemExit: Se ocorrer um erro durante a substituição dos valores.
@@ -105,6 +115,10 @@ class FieldHandler:
     def rename(cls, df: DataFrame, column: str, **kwargs) -> DataFrame:
         """
         Renomeia a coluna alvo para o valor fixo 'Codigo_Old'.
+        
+        Args:
+            df (DataFrame): DataFrame a ser modificado.
+            column (str): Coluna selecionada para modificação.
 
         Raises:
             SystemExit: Se a coluna alvo não existir no DataFrame.
@@ -123,6 +137,10 @@ class FieldHandler:
         """
         Limpa a coluna, trocando caracteres especiais ou com 
         acentos por seus equivalentes normais.
+        
+        Args:
+            df (DataFrame): DataFrame a ser modificado.
+            column (str): Coluna selecionada para modificação.
 
         Raises:
             SystemExit: Se ocorrer um erro durante a limpeza ou normalização.
@@ -146,6 +164,8 @@ class FieldHandler:
         Filtra o DataFrame, mantendo apenas as linhas que possuem um valor específico.
 
         Args:
+            df (DataFrame): DataFrame a ser modificado.
+            column (str): Coluna selecionada para modificação.
             **kwargs: Espera 'option_data' contendo o valor a ser usado no filtro.
 
         Raises:
@@ -167,6 +187,8 @@ class FieldHandler:
         Copia os valores de uma outra coluna para a coluna alvo.
 
         Args:
+            df (DataFrame): DataFrame a ser modificado.
+            column (str): Coluna selecionada para modificação.
             **kwargs: Espera 'option_data' com o nome da coluna de origem.
 
         Raises:
@@ -188,6 +210,8 @@ class FieldHandler:
         Formata os valores da coluna para padrões específicos (CPF, CNPJ, etc.).
 
         Args:
+            df (DataFrame): DataFrame a ser modificado.
+            column (str): Coluna selecionada para modificação.
             **kwargs: Espera 'option_data' com o tipo de formato desejado,
                       ex: 'CPF', 'CNPJ', 'DATETIME', 'CEP'.
         
@@ -252,6 +276,8 @@ class FieldHandler:
         Divide uma coluna de telefone em novas colunas de DDD e número.
 
         Args:
+            df (DataFrame): DataFrame a ser modificado.
+            column (str): Coluna selecionada para modificação.
             **kwargs: Espera 'option_data' indicando o tipo de campo a ser
                       dividido.
 
@@ -289,7 +315,10 @@ class FieldHandler:
         Enriquece o DataFrame buscando dados de cidades em uma fonte externa.
 
         Args:
-            **kwargs: Espera 'option_data' com o tipo de busca.
+            df (DataFrame): DataFrame a ser modificado.
+            column (str): Coluna selecionada para modificação.
+            **kwargs: Espera 'option_data' com o tipo de busca, 
+                      ex: 'CITY'.
 
         Raises:
             SystemExit: Se ocorrer um erro durante a busca ou junção dos dados.
