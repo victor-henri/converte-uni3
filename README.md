@@ -229,6 +229,15 @@ Este projeto está aberto para contribuições! Sinta-se à vontade para:
 - Email: victorhenri.profess@gmail.com
 - GitHub: [@victor-henri](https://github.com/victor-henri)
 
+
+## 📄 Licença
+
+Este projeto é um software livre, licenciado sob os termos da **Licença Pública Geral GNU v3.0 (AGPLv3)**.
+
+Isso significa que você tem a liberdade de usar, estudar, compartilhar e modificar este software. Qualquer trabalho derivado ou distribuído que utilize este código deve também ser licenciado sob a AGPLv3, garantindo que o software permaneça livre para toda a comunidade.
+
+Uma cópia completa da licença está disponível no arquivo [LICENSE](LICENSE) neste repositório.
+
 ---
 
 ⭐ Se este projeto foi útil ou achou interessante, considere dar uma estrela no repositório!
