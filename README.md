@@ -170,7 +170,7 @@ projeto-etl/
 ### Instalação
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/pipeline-etl.git
+git clone https://github.com/victor-henri/converte-uni3.git
 
 # Instale as dependências
 pip3 install -r requirements.txt
