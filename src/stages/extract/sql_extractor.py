@@ -2,7 +2,7 @@ from datetime import date
 from rich import print
 from pandas import DataFrame
 from sqlalchemy import MetaData, Table, Engine
-from logs.log import Log
+from utils.log import Log
 from stages.contracts.extract_contract import ExtractContract
 from stages.interfaces.sql_extractor import ExtractInterface
 

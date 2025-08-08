@@ -1,4 +1,4 @@
-from logs.log import Log
+from utils.log import Log
 
 def test_log():
 

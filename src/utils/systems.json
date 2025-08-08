@@ -1,22 +1,22 @@
 {
     "supplier": {
-        "table": "CLIENTES",
-        "destiny": "Pessoa",
+        "table": "fornecedores_origem",
+        "destiny": "fornecedores_destino",
         "fields": {
-            "CLICODIGO": {
-                "field_destiny": "Codigo",
+            "codigo_origem": {
+                "field_destiny": "codigo_destino",
                 "transform": {
                 }
             },
-            "CLINOME": {
-                "field_destiny": "Nome",
+            "nome_origem": {
+                "field_destiny": "nome_destino",
                 "transform": {
                     "trim": true,
                     "clear": true
                 }
             },
-            "CLICLASSE": {
-                "field_destiny": "Tipo",
+            "tipo_origem": {
+                "field_destiny": "tipo_destino",
                 "transform": {
                     "select": "FORNECEDOR",
                     "switch": {
@@ -25,37 +25,37 @@
                     }
                 }
             },
-            "CLICPF": {
-                "field_destiny": "CPF",
+            "cnpj_origem": {
+                "field_destiny": "cnpj_destino",
                 "transform": {
                     "format": "CNPJ"
                 }
             },
-            "CLIRG": {
-                "field_destiny": "RG",
+            "ie_origem": {
+                "field_destiny": "ie_destino",
                 "transform": {
                 }
             },
-            "CLIOBSERVACAO": {
-                "field_destiny": "Observacao",
-                "transform": {
-                    "trim": true,
-                    "clear": true
-                }
-            },
-            "CLIENDERECO": {
-                "field_destiny": "Endereco_Nome",
+            "observacao_origem": {
+                "field_destiny": "observacao_destino",
                 "transform": {
                     "trim": true,
                     "clear": true
                 }
             },
-            "CLINUMCASA": {
-                "field_destiny": "Numero",
+            "endereco_origem": {
+                "field_destiny": "endereco_destino",
+                "transform": {
+                    "trim": true,
+                    "clear": true
+                }
+            },
+            "numero_origem": {
+                "field_destiny": "numero_destino",
                 "transform": {
                 }
             },
-            "CLICIDADE": {
+            "cidade_origem": {
                 "field_destiny": "Cidade",
                 "transform": {
                     "clear": true,
@@ -64,33 +64,33 @@
                     "copy": "Codigo_Cidade"
                 }
             },
-            "CLIUF": {
+            "uf_origem": {
                 "field_destiny": "UF",
                 "transform": {
                 }
             },
-            "CLIBAIRRO": {
-                "field_destiny": "Bairro",
+            "bairro_origem": {
+                "field_destiny": "bairro_destino",
                 "transform": {
                     "trim": true,
                     "clear": true
                 }
             },
-            "CLICEP": {
-                "field_destiny": "Cep",
+            "cep_origem": {
+                "field_destiny": "cep_destino",
                 "transform": {
                     "format": "CEP"
                 }
             },
-            "CLIPONTOREF": {
-                "field_destiny": "Complemento",
+            "complemento_origem": {
+                "field_destiny": "complemento_destino",
                 "transform": {
                     "trim": true,
                     "clear": true
                 }
             },
-            "CLIATIVO": {
-                "field_destiny": "Inativo",
+            "ativo_origem": {
+                "field_destiny": "ativo_destino",
                 "transform": {
                     "switch": {
                         "str_from": ["0", "1"],
@@ -98,266 +98,22 @@
                     }
                 }
             },
-            "CLIEMAIL": {
-                "field_destiny": "Email",
+            "email_origem": {
+                "field_destiny": "email_destino",
                 "transform": {
                     "trim": true
                 }
             },
-            "CLIFONE1": {
-                "field_destiny": "Fone_Numero",
+            "fone_origem": {
+                "field_destiny": "fone_destino",
                 "transform": {
-                    "split": "DDD1"
+                    "split": "DDD"
                 }
             },
-            "CLICELULAR": {
-                "field_destiny": "Numero_Celular",
+            "cel_origem": {
+                "field_destiny": "cel_destino",
                 "transform": {
-                    "split": "DDD_Celular"
-                }
-            }
-        },
-        "remove": {
-            "column_1": "UF",
-            "column_2": "Codigo_Cidade",
-            "column_3": "Codigo_Cidade_IBGE"
-        }
-    },
-    "client_fis": {
-        "table": "CLIENTES",
-        "destiny": "Pessoa",
-        "fields": {
-            "CLICODIGO": {
-                "field_destiny": "Codigo",
-                "transform": {
-                }
-            },
-            "CLINOME": {
-                "field_destiny": "Nome",
-                "transform": {
-                    "trim": true,
-                    "clear": true
-                }
-            },
-            "CLICLASSE": {
-                "field_destiny": "Tipo",
-                "transform": {
-                    "select": "PESSOA FISICA",
-                    "switch": {
-                        "str_from": ["PESSOA FISICA"],
-                        "str_to": ["F"]
-                    }
-                }
-            },
-            "CLICPF": {
-                "field_destiny": "CPF",
-                "transform": {
-                    "format": "CPF"
-                }
-            },
-            "CLIRG": {
-                "field_destiny": "RG",
-                "transform": {
-                }
-            },
-            "CLIOBSERVACAO": {
-                "field_destiny": "Observacao",
-                "transform": {
-                }
-            },
-            "CLIENDERECO": {
-                "field_destiny": "Endereco_Nome",
-                "transform": {
-                    "clear": true,
-                    "trim": true
-                }
-            },
-            "CLINUMCASA": {
-                "field_destiny": "Numero",
-                "transform": {
-                }
-            },
-            "CLICIDADE": {
-                "field_destiny": "Cidade",
-                "transform": {
-                    "clear": true,
-                    "upper": true,
-                    "search": "CITY",
-                    "copy": "Codigo_Cidade"
-                }
-            },
-            "CLIUF": {
-                "field_destiny": "UF",
-                "transform": {
-                }
-            },
-            "CLIBAIRRO": {
-                "field_destiny": "Bairro",
-                "transform": {
-                    "trim": true,
-                    "clear": true
-                }
-            },
-            "CLICEP": {
-                "field_destiny": "Cep",
-                "transform": {
-                    "format": "CEP"
-                }
-            },
-            "CLIPONTOREF": {
-                "field_destiny": "Complemento",
-                "transform": {
-                    "trim": true,
-                    "clear": true
-                }
-            },
-            "CLIATIVO": {
-                "field_destiny": "Inativo",
-                "transform": {
-                    "switch": {
-                        "str_from": ["0", "1"],
-                        "str_to": ["N", "S"]
-                    }
-                }
-            },
-            "CLIEMAIL": {
-                "field_destiny": "Email",
-                "transform": {
-                    "trim": true
-                }
-            },
-            "CLIFONE1": {
-                "field_destiny": "Fone_Numero",
-                "transform": {
-                    "split": "DDD1"
-                }
-            },
-            "CLICELULAR": {
-                "field_destiny": "Numero_Celular",
-                "transform": {
-                    "split": "DDD_Celular"
-                }
-            }
-        },
-        "remove": {
-            "column_1": "UF",
-            "column_2": "Codigo_Cidade",
-            "column_3": "Codigo_Cidade_IBGE"
-        }
-    },
-    "client_jur": {
-        "table": "CLIENTES",
-        "destiny": "Pessoa",
-        "fields": {
-            "CLICODIGO": {
-                "field_destiny": "Codigo",
-                "transform": {
-                }
-            },
-            "CLINOME": {
-                "field_destiny": "Nome",
-                "transform": {
-                    "trim": true,
-                    "clear": true
-                }
-            },
-            "CLICLASSE": {
-                "field_destiny": "Tipo",
-                "transform": {
-                    "select": "PESSOA JURIDICA",
-                    "switch": {
-                        "str_from": ["PESSOA JURIDICA"],
-                        "str_to": ["J"]
-                    }
-                }
-            },
-            "CLICPF": {
-                "field_destiny": "CPF",
-                "transform": {
-                    "format": "CNPJ"
-                }
-            },
-            "CLIRG": {
-                "field_destiny": "RG",
-                "transform": {
-                }
-            },
-            "CLIOBSERVACAO": {
-                "field_destiny": "Observacao",
-                "transform": {
-                }
-            },
-            "CLIENDERECO": {
-                "field_destiny": "Endereco_Nome",
-                "transform": {
-                    "clear": true,
-                    "trim": true
-                }
-            },
-            "CLINUMCASA": {
-                "field_destiny": "Numero",
-                "transform": {
-                }
-            },
-            "CLICIDADE": {
-                "field_destiny": "Cidade",
-                "transform": {
-                    "clear": true,
-                    "upper": true,
-                    "search": "CITY",
-                    "copy": "Codigo_Cidade"
-                }
-            },
-            "CLIUF": {
-                "field_destiny": "UF",
-                "transform": {
-                }
-            },
-            "CLIBAIRRO": {
-                "field_destiny": "Bairro",
-                "transform": {
-                    "trim": true,
-                    "clear": true
-                }
-            },
-            "CLICEP": {
-                "field_destiny": "Cep",
-                "transform": {
-                    "format": "CEP"
-                }
-            },
-            "CLIPONTOREF": {
-                "field_destiny": "Complemento",
-                "transform": {
-                    "trim": true,
-                    "clear": true
-                }
-            },
-            "CLIATIVO": {
-                "field_destiny": "Inativo",
-                "transform": {
-                    "switch": {
-                        "str_from": ["0", "1"],
-                        "str_to": ["N", "S"]
-                    }
-                }
-            },
-            "CLIEMAIL": {
-                "field_destiny": "Email",
-                "transform": {
-                    "trim": true
-                }
-            },
-            "CLIFONE1": {
-                "field_destiny": "Fone_Numero",
-                "transform": {
-                    "split": "DDD1"
-                }
-            },
-            "CLICELULAR": {
-                "field_destiny": "Numero_Celular",
-                "transform": {
-                    "split": "DDD_Celular"
+                    "split": "DDD_cel"
                 }
             }
         },

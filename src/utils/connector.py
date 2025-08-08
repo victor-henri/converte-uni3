@@ -1,6 +1,6 @@
 from rich import print
 from sqlalchemy import create_engine, Engine
-from logs.log import Log
+from utils.log import Log
 
 
 class SQLConnector():

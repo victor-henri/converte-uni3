@@ -1,8 +1,8 @@
 {
     "font": "SQLServer",
     "host": "localhost",
-    "user": "sa", 
-    "password": "epilef",
-    "database": "DESTINO",
+    "user": "usuario", 
+    "password": "senha",
+    "database": "BaseDeDados",
     "driver": "driver=ODBC+Driver+17+for+SQL+Server"
 }

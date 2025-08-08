@@ -1,7 +1,7 @@
 from rich import print
 from pandas import DataFrame
 from sqlalchemy import Engine
-from logs.log import Log
+from utils.log import Log
 from stages.contracts.transform_contract import TransformContract
 from stages.interfaces.load_data import LoadInterface
 

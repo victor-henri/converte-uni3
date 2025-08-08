@@ -1,7 +1,7 @@
 from unicodedata import normalize
 from rich import print
 from pandas import DataFrame
-from logs.log import Log
+from utils.log import Log
 from utils.config_json import JsonConfig
 
 

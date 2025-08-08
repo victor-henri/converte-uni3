@@ -1,7 +1,7 @@
 from rich import print
 import os
 from json import load
-from logs.log import Log
+from utils.log import Log
 
 
 class JsonConfig:
